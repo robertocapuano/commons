@@ -1,6 +1,7 @@
 package it.zthink;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -24,6 +25,49 @@ import java.util.Optional;
  * 
  */
 public class Decode {
+	
+	static <K,V> Optional<V> fn( K val, K k, V v )
+	{
+		return (Optional<V>) fn(val, List.of(k), List.of(v), Optional.empty() );
+	}
+
+	static <K,V> V fn( K val, K k, V v, V def )
+	{
+		return fn(val, List.of(k), List.of(v), Optional.of(def) ).get();
+	}
+
+	static <K,V> Optional<V> fn( K val, K k0, V v0, K k1, V v1 )
+	{
+		return (Optional<V>) fn(val, List.of(k0,k1), List.of(v0,v1), Optional.empty() );
+	}
+
+	static <K,V> V fn( K val, K k0, V v0, K k1, V v1, V failback )
+	{
+		return fn(val, List.of(k0,k1), List.of(v0,v1),  Optional.of(failback) ).get();
+	}
+
+	static <K,V> V fn( K val, K k0, V v0, K k1, V v1, K k2, V v2, V failback )
+	{
+		return fn(val, List.of(k0,k1), List.of(v0,v1), Optional.of(failback) ).get();
+	}
+
+	static <K,V> V fn( K val, K k0, V v0, K k1, V v1, K k2, V v2, K k3, V v3, V failback )
+	{
+		return fn(val, List.of(k0,k1,k2), List.of(v0,v1,v2),  Optional.of(failback) ).get();
+	}
+	
+	static <K,V> Optional<V> fn( K val, List<K> ks, List<V> vs, Optional<V> failback )
+	{
+		assert( ks.size()==vs.size() );
+		
+		for ( int i=0; i<ks.size(); ++i )
+		{
+			if (val.equals(ks.get(i)))
+				return Optional.of(vs.get(i));
+		}
+		
+		return failback;
+	}
 	
 	public static <K,V> DecoderWithValue<K,V> on( K k )
 	{
