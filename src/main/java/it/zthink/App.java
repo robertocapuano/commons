@@ -59,5 +59,8 @@ public class App
 		var l2 = Fn.filter( List.of(0,1,3,4), z -> z<2 ) ;
 		System.out.println( Fn.map( List.of(0,1,3,4), z -> z*2 ) );
 		Fn.forEach( List.of(0,1,3,4), z -> System.out.println(z) );
+		
+		var res1 = Fn.decode( "aa", "ab", 11, "cc", 12, 0 );
+		
     }
 }
