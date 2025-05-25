@@ -4,14 +4,13 @@ import java.util.Objects;
 
 public class Tuple2 <T0, T1> {
 	
-	public final T0 _0;
-	public final T1 _1;
-	
-	
 	public static <T0,T1> Tuple2<T0,T1> of( T0 _0, T1 _1  )
 	{
 		return new Tuple2<T0,T1>(_0,_1);
 	}
+
+	public final T0 _0;
+	public final T1 _1;
 	
 	public Tuple2(T0 _0, T1 _1 )
 	{
@@ -19,13 +18,11 @@ public class Tuple2 <T0, T1> {
 		this._1=_1;
 	}
 
-
-	public T0 get_0() {
+	public T0 get0() {
 		return _0;
 	}
 
-
-	public T1 get_1() {
+	public T1 get1() {
 		return _1;
 	}
 
@@ -50,7 +47,5 @@ public class Tuple2 <T0, T1> {
 	public String toString() {
 		return "Tuple2 [_0=" + _0 + ", _1=" + _1 + "]";
 	}
-	
-	
 	
 }

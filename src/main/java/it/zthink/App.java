@@ -31,15 +31,11 @@ public class App
     	var dec2 = Decode.map( "a", 1).map("b", 2).or(3).get(y);
     	System.out.println( dec2 );
     	
-    	var dec3 = Decode.map( "a", 1).map("b", 2).or(3).on(y).get();
+    	var dec3 = Decode.map("a", 1).map("b", 2).or(3).on(y).get();
     	System.out.println( dec3 );
 
-    	var dec4 = Decode.fn( y,  "a", 1, "b", 2, 3 );
+    	var dec4 = Decode.fn( y, "a", 1, "b", 2, 3 );
     	System.out.println( dec4 );
-    	//    	var v2 = Decode
-//    		.map( "a", 1 )
-//    		.map( "b", 2 )
-//    		.getOrDefault("c",3);
     	
     	var x = Tuple2.of(12,"b");
     	
