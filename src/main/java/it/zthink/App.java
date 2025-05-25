@@ -1,7 +1,5 @@
 package it.zthink;
 
-import java.util.Optional;
-import java.util.Set;
 import java.util.*;
 
 /**
@@ -56,5 +54,10 @@ public class App
     	var s2 = Set.of("xx");
     	
         System.out.println( "Hello".replaceAll("[a-z]", "*") );
+        
+		System.out.println( Fn.filter( List.of(0,1,3,4), z -> z<2 ) );
+		var l2 = Fn.filter( List.of(0,1,3,4), z -> z<2 ) ;
+		System.out.println( Fn.map( List.of(0,1,3,4), z -> z*2 ) );
+		Fn.forEach( List.of(0,1,3,4), z -> System.out.println(z) );
     }
 }
